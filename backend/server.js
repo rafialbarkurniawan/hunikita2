@@ -76,12 +76,12 @@ app.post("/login", (req, res) => {
             res.cookie("token", token);
             return res.json({ Status: "Success" });
           } else {
-            return res.json({ Error: "Password not matched" });
+            return res.json({ Error: "Password tidak sesuai" });
           }
         }
       );
     } else {
-      return res.json({ Error: "No email existed" });
+      return res.json({ Error: "Email belum terdaftar" });
     }
   });
 });

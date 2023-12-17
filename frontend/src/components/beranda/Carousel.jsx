@@ -4,16 +4,16 @@ import { BiSolidChevronLeft, BiSolidChevronRight } from "react-icons/bi";
 const Carousel = () => {
   const slides = [
     {
-      url: "/kontrakan1.png",
+      url: "/housing.png",
     },
     {
-      url: "/kontrakan2.png",
+      url: "/housing2.png",
     },
     {
-      url: "/kontrakan3.png",
+      url: "/boarding.png",
     },
     {
-      url: "/kontrakan4.png",
+      url: "/boarding2.png",
     },
   ];
 

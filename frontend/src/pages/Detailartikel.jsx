@@ -1,10 +1,12 @@
-import React from 'react'
-import Card from '../components/beranda/Card';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
+import React from "react";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import Populer from "../components/Populer";
+import Populer2 from "../components/Populercopy";
+import Populer3 from "../components/Populercopy2";
 
 const Detailartikel = () => {
-    const backgroundImageUrl = "/wisata-madura-3.png";
+  const backgroundImageUrl = "/wisata-madura-3.png";
   const style = {
     backgroundImage: `url(${backgroundImageUrl})`,
     backgroundSize: "cover",
@@ -14,9 +16,9 @@ const Detailartikel = () => {
 
   return (
     <div>
-        <Navbar />
+      <Navbar />
       <div className="relative">
-        <div className="w-[1440px] h-[483px]" style={style}></div>
+        <div className="w-full h-[483px]" style={style}></div>
         <div className="w-[1022px] h-[2000px] bg-[#EEEADF] flex flex-col absolute -mt-[150px]">
           <h1 className='text-[50px] text-["Poppins"] font-bold ml-[81px] mt-[61px]'>
             3 Wisata buat anak kos!
@@ -111,20 +113,17 @@ const Detailartikel = () => {
             Artikel Populer
           </h1>
           <div className="flex flex-col gap-8 mt-[20px]">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <Populer />
+            <Populer2 />
+            <Populer3 />
           </div>
         </div>
       </div>
-      <div className="mt-[400px]">
+      <div className="mt-[900px]">
         <Footer />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Detailartikel
+export default Detailartikel;

@@ -2,9 +2,10 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Artikel from '../components/Artikel'
 import List from '../components/List'
+import List2 from '../components/Listcopy'
+import List3 from '../components/Listcopy2'
 import Pagination from '../components/Pagination'
 import Footer from '../components/Footer'
-import { Link } from 'react-router-dom'
 
 const Listartikel = () => {
   return (
@@ -22,11 +23,9 @@ const Listartikel = () => {
         </div>
       </div>
       <div className="flex flex-col gap-6 mt-[40px]">
-        <Link to="/detail-artikel">
-          <List />
-        </Link>
         <List />
-        <List />
+        <List2 />
+        <List3 />
       </div>
       <div className="mt-[99px]">
         <Pagination />

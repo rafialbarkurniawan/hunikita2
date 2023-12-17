@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const List = () => {
   return (
     <div className="w-[954px] h-[219px] flex shadow-xl relative rounded-[20px] mx-auto hover:shadow-2xl">
-      <div className="mt-[19px] ml-[26px] mb-[19px]">
+      <div className="w-[382px] mt-[19px] ml-[26px] mb-[19px]">
         <img src="/image-artikel-list.png" alt="" />
       </div>
       <div className="mt-[19px] ml-[13px] mb-[19px]">
@@ -17,9 +18,9 @@ const List = () => {
           mahasiswa kos-kosan yang ingin bersantai dan menyegarkan diri dari
           rutinitas kuliah dan kerja.
         </p>
-        <button className="bg-[#4E97D1] text-white text-[10px] flex justify-center items-center w-[153px] h-[27px] rounded-[5px] underline mt-[15px] ml-[315px]">
+        <Link to='/detail-artikel'><button className="bg-[#4E97D1] text-white text-[10px] flex justify-center items-center w-[153px] h-[27px] rounded-[5px] underline mt-[15px] ml-[315px]">
           Selengkapnya
-        </button>
+        </button></Link>
       </div>
     </div>
   )

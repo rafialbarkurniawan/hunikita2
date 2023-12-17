@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 const Properti = () => {
   return (
-    <div className="w-full justify-center flex mt-[38px] hover:shadow-2xl">
-      <div className="w-[1150px] h-[320px] shadow-xl rounded-[10px] flex gap-4 items-center justify-around">
+    <div className="w-full justify-center flex mt-[38px]">
+      <div className="w-[1150px] h-[320px] shadow-xl rounded-[10px] flex gap-4 items-center justify-around hover:shadow-2xl">
         <div className="w-[488px] ml-[25px]">
           <img src="/card-list-properti.png" alt="" />
         </div>
