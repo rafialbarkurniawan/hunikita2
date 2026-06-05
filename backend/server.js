@@ -42,7 +42,7 @@ const verifyUser = (req, res, next) => {
   }
 };
 
-app.get("/", verifyUser,  (req, res) => {
+app.get("/", verifyUser, (req, res) => {
   return res.json({ Status: "Success", name: req.name });
 });
 
@@ -88,7 +88,6 @@ app.post("/login", (req, res) => {
 
 app.get("/logout", (req, res) => {
   res.clearCookie("token");
-
   return res.json({ Status: "Success" });
 });
 

@@ -7,8 +7,8 @@ const Search = () => {
       <form action="">
         <input
           type="text"
-          placeholder="Ketik nama kontrakan atau lokasi"
-          className="border-none w-[470px] pl-[14px] ml-[7px]"
+          placeholder="   Ketik nama kontrakan atau lokasi"
+          className="w-[470px] bg-gray-200  h-[40px] border focus:border-blue-500 focus:bg-white focus:outline-none rounded-lg"
         />
       </form>
       <button className="w-[93px] h-[31px] bg-[#4E97D1] flex justify-center absolute right-[70px] items-center text-white text-[18px] rounded-[8px]">
