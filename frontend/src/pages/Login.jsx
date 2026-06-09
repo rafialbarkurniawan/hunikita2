@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux"
 import axios from "axios";
+import { API } from "../constant";
+import { doLogin } from "../store";
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -8,20 +11,33 @@ const Login = () => {
     password: "",
   });
 
+  const dispatch = useDispatch()
   const navigate = useNavigate();
-  axios.defaults.withCredentials = true;
+  const auth = useSelector((state) => state.auth )
+
+  useEffect(() => {
+    if (auth) {
+      navigate('/');
+    }
+  }, [auth, navigate]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:8081/login", values)
+      .post(API.LOGIN, values)
       .then((res) => {
-        if (res.data.Status === "Success") {
+        if (res.status === 200) {
+          dispatch(doLogin(res.data.data))
           navigate("/");
-        } else {
-          alert(res.data.Error);
         }
       })
-      .then((err) => console.log(err));
+      .catch((err) => {
+          if (err.response.status == 400) {
+            alert(err.response.data.detail)
+          } else {
+            alert("Server Error! Coba lagi beberapa saat")
+          }
+      });
   };
 
   return (

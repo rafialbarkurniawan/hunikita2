@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux"
+import { API } from "../constant";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -10,18 +12,30 @@ const Register = () => {
   });
 
   const navigate = useNavigate();
+  const auth = useSelector((state) => state.auth )
+
+  useEffect(() => {
+    if (auth) {
+      navigate('/');
+    }
+  }, [auth, navigate]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:8081/register", values)
+      .post(API.REGISTER, values)
       .then((res) => {
-        if (res.data.Status === "Success") {
+        if (res.status === 201) {
           navigate("/login");
-        } else {
-          alert("Error");
-        }
+        } 
       })
-      .then((err) => console.log(err));
+      .catch((err) => {
+        if (err.response.status == 400) {
+          alert(err.response.data.detail)
+        } else {
+          alert("Server Error! Coba lagi beberapa saat")
+        }
+    });
   };
 
   return (
@@ -70,10 +84,10 @@ const Register = () => {
                 </label>
                 <input
                   type="password"
-                  name="sandi"
+                  name="password"
                   placeholder="Masukkan sandi"
                   onChange={(e) =>
-                    setValues({ ...values, sandi: e.target.value })
+                    setValues({ ...values, password: e.target.value })
                   }
                   className="w-full px-1.5 py-1.5 bg-gray-200 border focus:border-blue-500 focus:bg-white focus:outline-none rounded-lg"
                 />
