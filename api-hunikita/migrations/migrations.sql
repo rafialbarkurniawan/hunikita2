@@ -58,12 +58,15 @@ INSERT INTO `property_types` (`name`) VALUES
 
 CREATE TABLE `properties` (
   `id` serial NOT NULL PRIMARY KEY,
-  `user_id` INT NOT NULL REFERENCES users(id) CASCADE ON DELETE ON UPDATE,
-  `property_type_id` INT NOT NULL REFERENCES property_types(id) CASCADE ON DELETE ON UPDATE,
+  `user_id` INT NOT NULL, -- Disesuaikan dengan users.id yang bertipe INT
+  `property_type_id` BIGINT UNSIGNED NOT NULL, -- Tetap BIGINT UNSIGNED menyesuaikan tipe SERIAL di property_types
   `owner_name` varchar(100) NOT NULL,
   `owner_email` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `address` varchar(100) NOT NULL,
   `room_count` INT NOT NULL, 
-  `img_path` VARCHAR(250) NOT NULL
+  `img_path` VARCHAR(250) NOT NULL,
+  
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`property_type_id`) REFERENCES `property_types`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
